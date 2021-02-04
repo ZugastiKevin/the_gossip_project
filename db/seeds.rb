@@ -11,7 +11,8 @@
 City.destroy_all
 User.destroy_all
 Gossip.destroy_all
-Appointment.destroy_all
+Tag.destroy_all
+PrivateMessage.destroy_all
 
 
 
@@ -39,19 +40,25 @@ end
 20.times do
   Gossip.create(
     user_id: User.all.sample.id ,
-    title: Faker::Name.first_name ,
-    content: Faker::Name.last_name
+    title: Faker::Book.unique.title ,
+    content: Faker::Lorem.unique.paragraph(sentence_count: 4, supplemental: true)
   )
 end
 
 
 
-37.times do 
-  Appointment.create(
-    doctor_id: Doctor.all.sample.id ,
-    patient_id: Patient.all.sample.id ,
-    city_id: City.all.sample.id ,
-    date: Faker::Time.forward(days: 37,  period: :day)
+10.times do 
+  Tag.create(
+    gossip_id: Gossip.all.sample.id ,
+    title: Faker::ChuckNorris.fact
+  )
+end
+
+
+
+5.times do 
+  PrivateMessage.create(
+    content: Faker::Lorem.unique.paragraph(sentence_count: 1, supplemental: true)
   )
 end
 
