@@ -1,24 +1,17 @@
-# README
+bundle install
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+rails db:migrate
 
-Things you may want to cover:
+rails db:seed
 
-* Ruby version
+rails c
 
-* System dependencies
+tp City.all
 
-* Configuration
+tp User.all
 
-* Database creation
+tp Gossip.all
 
-* Database initialization
+tp Tag.all
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+tp PrivateMessage.all
